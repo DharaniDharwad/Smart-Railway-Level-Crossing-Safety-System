@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "author": "Dharani MD",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0.6, "left": -0.6, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 122.8, "left": 422.4, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -67.8,
+      "left": 223.8,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -163.8,
+      "left": 79.8,
+      "rotate": 90,
+      "attrs": { "color": "red", "xray": "1" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -118.8, "left": -25, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -118.8,
+      "left": -82.6,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -93.6,
+      "left": 126.6,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -22.4,
+      "left": 380,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "btn1:1.r", "uno:2", "green", [ "v0" ] ],
+    [ "btn1:2.r", "uno:GND.1", "green", [ "h0" ] ],
+    [ "uno:3", "btn2:1.r", "green", [ "v0" ] ],
+    [ "btn2:2.r", "uno:GND.1", "green", [ "v0" ] ],
+    [ "servo1:V+", "uno:5V", "green", [ "h0" ] ],
+    [ "servo1:PWM", "uno:9", "green", [ "h0" ] ],
+    [ "bz1:2", "uno:7", "green", [ "v0" ] ],
+    [ "bz1:1", "uno:GND.1", "green", [ "v0" ] ],
+    [ "led1:C", "uno:GND.2", "green", [ "v0" ] ],
+    [ "led2:A", "uno:6", "green", [ "v0" ] ],
+    [ "led2:C", "uno:GND.3", "green", [ "v0" ] ],
+    [ "led1:A", "uno:5", "green", [ "v0" ] ],
+    [ "lcd1:GND", "uno:GND.1", "black", [ "h0" ] ],
+    [ "uno:5V", "lcd1:VCC", "red", [ "v0" ] ],
+    [ "lcd1:SDA", "uno:A4", "green", [ "h0" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h0" ] ],
+    [ "servo1:GND", "uno:GND.2", "black", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
